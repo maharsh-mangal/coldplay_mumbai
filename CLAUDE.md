@@ -10,8 +10,8 @@ Demonstrates concurrency-safe booking, clean architecture, API-first design, and
 - **PHP**: 8.3+ (strict types everywhere)
 - **Laravel**: 12 (streamlined structure — no Kernel.php)
 - **Frontend**: Vue 3 + Inertia.js v2 + TypeScript + TailwindCSS
-- **Database**: MySQL 8 (InnoDB for row-level locking)
-- **Cache/Queue**: Redis 7
+- **Database**: MySQL 8.4 LTS (InnoDB for row-level locking)
+- **Cache/Queue**: Redis 8
 - **Testing**: Pest 4
 - **Linting**: Laravel Pint (custom strict rules in `.pint.json`)
 - **Infrastructure**: Docker Compose (app, nginx, mysql, redis, queue worker)

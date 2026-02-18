@@ -6,11 +6,12 @@ namespace Database\Factories;
 
 use App\Enums\SeatStatus;
 use App\Models\Event;
+use App\Models\Seat;
 use App\Models\Section;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Seat>
+ * @extends Factory<Seat>
  */
 class SeatFactory extends Factory
 {

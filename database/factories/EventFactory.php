@@ -5,13 +5,14 @@ declare(strict_types=1);
 namespace Database\Factories;
 
 use App\Enums\EventStatus;
+use App\Models\Event;
 use App\Models\Tour;
 use App\Models\Venue;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Event>
+ * @extends Factory<Event>
  */
 class EventFactory extends Factory
 {

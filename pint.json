@@ -27,7 +27,9 @@
         "return_type_declaration": {
             "space_before": "none"
         },
-        "fully_qualified_strict_types": true,
+        "fully_qualified_strict_types": {
+            "import_symbols": true
+        },
         "global_namespace_import": {
             "import_classes": true,
             "import_constants": false,

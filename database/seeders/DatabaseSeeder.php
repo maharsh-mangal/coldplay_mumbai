@@ -56,7 +56,7 @@ class DatabaseSeeder extends Seeder
             ->has(Section::factory()->vip(), 'sections')
             ->has(Section::factory()->premium(), 'sections')
             ->has(Section::factory()->general(), 'sections')
-            ->create(['slug' => 'coldplay-mumbai-18-jan-2025', 'event_date' => '2025-01-18 19:00:00']);
+            ->create(['slug' => 'coldplay-mumbai-18-jan-2025', 'event_date' => '2027-01-18 19:00:00']);
 
         $this->seedSeats();
     }

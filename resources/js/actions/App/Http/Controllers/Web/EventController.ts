@@ -176,7 +176,7 @@ show.head = (args: { slug: string | number } | [slug: string | number ] | string
     show.form = showForm
 /**
 * @see \App\Http\Controllers\Web\EventController::seatsAvailable
- * @see app/Http/Controllers/Web/EventController.php:43
+ * @see app/Http/Controllers/Web/EventController.php:41
  * @route '/seats/available'
  */
 export const seatsAvailable = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -191,7 +191,7 @@ seatsAvailable.definition = {
 
 /**
 * @see \App\Http\Controllers\Web\EventController::seatsAvailable
- * @see app/Http/Controllers/Web/EventController.php:43
+ * @see app/Http/Controllers/Web/EventController.php:41
  * @route '/seats/available'
  */
 seatsAvailable.url = (options?: RouteQueryOptions) => {
@@ -200,7 +200,7 @@ seatsAvailable.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\Web\EventController::seatsAvailable
- * @see app/Http/Controllers/Web/EventController.php:43
+ * @see app/Http/Controllers/Web/EventController.php:41
  * @route '/seats/available'
  */
 seatsAvailable.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -210,7 +210,7 @@ seatsAvailable.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => 
 
     /**
 * @see \App\Http\Controllers\Web\EventController::seatsAvailable
- * @see app/Http/Controllers/Web/EventController.php:43
+ * @see app/Http/Controllers/Web/EventController.php:41
  * @route '/seats/available'
  */
     const seatsAvailableForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -220,7 +220,7 @@ seatsAvailable.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => 
 
             /**
 * @see \App\Http\Controllers\Web\EventController::seatsAvailable
- * @see app/Http/Controllers/Web/EventController.php:43
+ * @see app/Http/Controllers/Web/EventController.php:41
  * @route '/seats/available'
  */
         seatsAvailableForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

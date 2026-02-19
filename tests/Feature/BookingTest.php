@@ -267,7 +267,7 @@ describe('concurrency', function (): void {
         // User 1 locks first
         $order = $service->lockSeats($user1, $event, $seatIds);
         expect($order)->toBeInstanceOf(Order::class)
-            ->and(fn() => $service->lockSeats($user2, $event, $seatIds))
+            ->and(fn () => $service->lockSeats($user2, $event, $seatIds))
             ->toThrow(BookingException::class, 'seats are no longer available');
 
         // User 2 tries same seat — must fail

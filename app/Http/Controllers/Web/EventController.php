@@ -38,8 +38,6 @@ class EventController extends Controller
         ]);
     }
 
-
-
     public function seatsAvailable(Request $request)
     {
         $seats = $request->input('seats', []);

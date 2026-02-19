@@ -22,20 +22,20 @@ class DatabaseSeeder extends Seeder
         $city = City::factory()->create([
             'name' => 'Mumbai',
             'state' => 'Maharashtra',
-            'country' => 'India'
+            'country' => 'India',
         ]);
 
         $venue = Venue::factory()->for($city)->create([
             'name' => 'DY Patil Stadium',
             'address' => 'Nerul, Navi Mumbai, Maharashtra 400706',
-            'capacity' => 55000
+            'capacity' => 55000,
         ]);
 
         $tour = Tour::factory()->create([
             'name' => 'Music of the Spheres World Tour',
             'slug' => 'coldplay-music-of-the-spheres-2025',
             'artist' => 'Coldplay',
-            'description' => 'Coldplay returns to India.'
+            'description' => 'Coldplay returns to India.',
         ]);
 
         User::factory()

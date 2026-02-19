@@ -4,13 +4,10 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Api;
 
-use App\Enums\SeatStatus;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\EventDetailResource;
 use App\Http\Resources\EventResource;
 use App\Models\Event;
-use App\Models\Seat;
-use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 class EventController extends Controller

@@ -32,6 +32,7 @@ class BookingService
      *
      * Idempotency: if the same user already holds these exact seats with a
      * pending order, we return that order instead of creating a duplicate.
+     *
      * @throws Throwable
      */
     public function lockSeats(User $user, Event $event, array $seatIds): Order

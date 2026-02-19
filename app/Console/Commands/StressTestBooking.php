@@ -1,19 +1,23 @@
 <?php
+
+declare(strict_types=1);
 // app/Console/Commands/StressTestBooking.php
 
 namespace App\Console\Commands;
 
+use App\Exceptions\BookingException;
 use App\Models\Event;
 use App\Models\Seat;
 use App\Models\User;
 use App\Services\BookingService;
-use App\Exceptions\BookingException;
+use Exception;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 
 class StressTestBooking extends Command
 {
     protected $signature = 'test:stress-booking {users=50} {--seat-id=}';
+
     protected $description = 'Simulate concurrent users trying to book the same seat';
 
     public function handle(BookingService $bookingService): int
@@ -25,8 +29,9 @@ class StressTestBooking extends Command
         $seatId = $this->option('seat-id')
             ?? Seat::where('status', 'available')->first()?->id;
 
-        if (!$seatId) {
+        if (! $seatId) {
             $this->error('No available seats found. Run: php artisan migrate:fresh --seed');
+
             return 1;
         }
 
@@ -50,15 +55,18 @@ class StressTestBooking extends Command
                     $bookingService->lockSeats($user, $event, [$seatId]);
                     DB::commit();
                     $results['success']++;
+
                     return 'success';
                 } catch (BookingException $e) {
                     DB::rollBack();
                     $results['failed']++;
-                    return 'failed: ' . $e->getMessage();
-                } catch (\Exception $e) {
+
+                    return 'failed: '.$e->getMessage();
+                } catch (Exception $e) {
                     DB::rollBack();
                     $results['errors'][] = $e->getMessage();
-                    return 'error: ' . $e->getMessage();
+
+                    return 'error: '.$e->getMessage();
                 }
             };
         }
@@ -72,11 +80,11 @@ class StressTestBooking extends Command
 
         // Results
         $this->newLine();
-        $this->info("📊 RESULTS");
-        $this->info("═══════════════════════════════════");
+        $this->info('📊 RESULTS');
+        $this->info('═══════════════════════════════════');
         $this->info("✅ Successful bookings: {$results['success']}");
         $this->info("❌ Correctly rejected:  {$results['failed']}");
-        $this->info("⚠️  Errors:             " . count($results['errors']));
+        $this->info('⚠️  Errors:             '.count($results['errors']));
         $this->info("⏱️  Total time:         {$elapsed}ms");
         $this->newLine();
 
@@ -84,10 +92,12 @@ class StressTestBooking extends Command
         $seatBookings = DB::table('order_items')->where('seat_id', $seatId)->count();
 
         if ($results['success'] === 1 && $seatBookings === 1) {
-            $this->info("✅ PASSED: Exactly 1 user got the seat. No double-booking!");
+            $this->info('✅ PASSED: Exactly 1 user got the seat. No double-booking!');
+
             return 0;
         } else {
             $this->error("❌ FAILED: {$seatBookings} bookings found for same seat!");
+
             return 1;
         }
     }

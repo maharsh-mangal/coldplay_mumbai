@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace App\Console\Commands;
 
 use App\Enums\SeatStatus;
@@ -8,6 +11,7 @@ use Illuminate\Console\Command;
 class ReleaseExpiredSeatLocks extends Command
 {
     protected $signature = 'seats:release-expired';
+
     protected $description = 'Release seat locks that have expired';
 
     public function handle(): int
